@@ -2,8 +2,8 @@
 //  TableViewCellDelegate.h
 //  InMovies
 //
-//  Created by Marius Ilie on 06/09/2016.
-//  Copyright © 2016 Marius Ilie. All rights reserved.
+//  Created by Buzoianu Stefan on 06/09/2016.
+//  Copyright © 2016 Buzoianu Stefan. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
