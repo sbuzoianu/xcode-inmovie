@@ -10,6 +10,7 @@
 
 @implementation SearchView
 
+@dynamic delegate;
 
 - (void) callCloseButtonDelegate:(id)sender
 {
