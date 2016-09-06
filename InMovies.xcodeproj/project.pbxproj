@@ -24,6 +24,9 @@
 		7A9E9B241D7C49880069CB50 /* SearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9E9B221D7C49880069CB50 /* SearchController.m */; };
 		7A9E9B251D7C49880069CB50 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A9E9B231D7C49880069CB50 /* SearchView.xib */; };
 		7A9E9B281D7C49AC0069CB50 /* SearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9E9B271D7C49AC0069CB50 /* SearchView.m */; };
+		7AD73A4D1D7EF833006A42C1 /* MovieDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD73A4B1D7EF833006A42C1 /* MovieDetailsController.m */; };
+		7AD73A4E1D7EF833006A42C1 /* MovieDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AD73A4C1D7EF833006A42C1 /* MovieDetailsView.xib */; };
+		7AD73A511D7EF872006A42C1 /* MovieDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD73A501D7EF872006A42C1 /* MovieDetailsView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +63,11 @@
 		7A9E9B271D7C49AC0069CB50 /* SearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchView.m; sourceTree = "<group>"; };
 		7A9E9B2A1D7C4B480069CB50 /* +NavigationDelegates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "+NavigationDelegates.h"; sourceTree = "<group>"; };
 		7AD73A491D7EED2E006A42C1 /* +TableViewCellDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "+TableViewCellDelegate.h"; sourceTree = "<group>"; };
+		7AD73A4A1D7EF833006A42C1 /* MovieDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieDetailsController.h; sourceTree = "<group>"; };
+		7AD73A4B1D7EF833006A42C1 /* MovieDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieDetailsController.m; sourceTree = "<group>"; };
+		7AD73A4C1D7EF833006A42C1 /* MovieDetailsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieDetailsView.xib; sourceTree = "<group>"; };
+		7AD73A4F1D7EF872006A42C1 /* MovieDetailsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieDetailsView.h; sourceTree = "<group>"; };
+		7AD73A501D7EF872006A42C1 /* MovieDetailsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieDetailsView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +172,8 @@
 				7A9E9B271D7C49AC0069CB50 /* SearchView.m */,
 				7A49035B1D7C79DF002C955C /* SearchTableViewCell.h */,
 				7A49035C1D7C79DF002C955C /* SearchTableViewCell.m */,
+				7AD73A4F1D7EF872006A42C1 /* MovieDetailsView.h */,
+				7AD73A501D7EF872006A42C1 /* MovieDetailsView.m */,
 				7A9E9B291D7C49B50069CB50 /* xib */,
 			);
 			name = Views;
@@ -175,6 +185,7 @@
 				7A2C8AE51D7AEB2C00FAF271 /* RootView.xib */,
 				7A9E9B231D7C49880069CB50 /* SearchView.xib */,
 				7A4903591D7C7786002C955C /* SearchTableViewCell.xib */,
+				7AD73A4C1D7EF833006A42C1 /* MovieDetailsView.xib */,
 			);
 			name = xib;
 			sourceTree = "<group>";
@@ -188,6 +199,8 @@
 				7A2C8AE41D7AEB2C00FAF271 /* RootController.m */,
 				7A9E9B211D7C49880069CB50 /* SearchController.h */,
 				7A9E9B221D7C49880069CB50 /* SearchController.m */,
+				7AD73A4A1D7EF833006A42C1 /* MovieDetailsController.h */,
+				7AD73A4B1D7EF833006A42C1 /* MovieDetailsController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -256,6 +269,7 @@
 				7A2C8AE91D7AF10100FAF271 /* Default-568h@2x.png in Resources */,
 				7A9E9B251D7C49880069CB50 /* SearchView.xib in Resources */,
 				7A49035A1D7C7786002C955C /* SearchTableViewCell.xib in Resources */,
+				7AD73A4E1D7EF833006A42C1 /* MovieDetailsView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,10 +281,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A9E9B281D7C49AC0069CB50 /* SearchView.m in Sources */,
+				7AD73A4D1D7EF833006A42C1 /* MovieDetailsController.m in Sources */,
 				7A16E1C11D75CE1D00337929 /* IMDBMovieDataModel.m in Sources */,
 				7A2C8AED1D7B0EF500FAF271 /* RootView.m in Sources */,
 				7A16E1D21D7735CA00337929 /* DataBuilder.m in Sources */,
 				7A16E1AD1D75B00000337929 /* MovieTime.xcdatamodeld in Sources */,
+				7AD73A511D7EF872006A42C1 /* MovieDetailsView.m in Sources */,
 				7A49035D1D7C79DF002C955C /* SearchTableViewCell.m in Sources */,
 				7A16E1A41D75AFFF00337929 /* AppDelegate.m in Sources */,
 				7A2C8AE61D7AEB2C00FAF271 /* RootController.m in Sources */,

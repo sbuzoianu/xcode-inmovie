@@ -23,7 +23,7 @@
 
 - (IBAction)cellTapGestureInvoked:(UITapGestureRecognizer *)sender
 {
-    UITableViewCell *cell = (UITableViewCell *)[sender.view superview];
+    UITableViewCell *cell = (UITableViewCell *)sender.view;
     [self.delegate didInvokedCellTapGesture:cell];
 }
 
