@@ -12,7 +12,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o5t-3Y-dOp" id="hRY-RS-93d">
-                <frame key="frameInset" width="375" height="89.5"/>
+                <frame key="frameInset" width="375" height="90"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uFL-XS-YVk">
@@ -43,13 +43,20 @@
                     </button>
                 </subviews>
             </tableViewCellContentView>
+            <gestureRecognizers/>
             <connections>
                 <outlet property="thumbnailImageView" destination="uFL-XS-YVk" id="VVX-Qb-8ZF"/>
                 <outlet property="titleLabel" destination="q3A-uW-KdG" id="DUk-l0-KRN"/>
                 <outlet property="yearLabel" destination="olf-Ny-xuv" id="0mZ-T1-NSl"/>
+                <outletCollection property="gestureRecognizers" destination="PFM-zT-CbE" appends="YES" id="Ei3-Tr-MeF"/>
             </connections>
             <point key="canvasLocation" x="9.5" y="19"/>
         </tableViewCell>
+        <tapGestureRecognizer id="PFM-zT-CbE">
+            <connections>
+                <action selector="cellTapGestureInvoked:" destination="o5t-3Y-dOp" id="2tS-Xd-uNj"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="Bookmarks" width="25" height="22"/>

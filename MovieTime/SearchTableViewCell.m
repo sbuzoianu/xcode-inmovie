@@ -21,4 +21,10 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)cellTapGestureInvoked:(UITapGestureRecognizer *)sender
+{
+    UITableViewCell *cell = (UITableViewCell *)[sender.view superview];
+    [self.delegate didInvokedCellTapGesture:cell];
+}
+
 @end

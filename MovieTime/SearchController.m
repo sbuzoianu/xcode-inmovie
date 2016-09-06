@@ -14,7 +14,7 @@
 #import "IMDBManager.h"
 #import "IMDBSearch.h"
 
-@interface SearchController () <IMDBManagerDelegate, SearchNavigationDelegate, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface SearchController () <IMDBManagerDelegate, SearchNavigationDelegate, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, TableViewCellDelegate>
 {
     NSArray *_movies;
     IMDBManager *_manager;
@@ -144,10 +144,12 @@
     static NSString *simpleTableIdentifier = @"SearchTableViewCell";
     
     SearchTableViewCell *cell = (SearchTableViewCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    
     if (cell == nil)
     {
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SearchTableViewCell" owner:self options:nil];
         cell = [nib objectAtIndex:0];
+        cell.delegate = self;
     }
     cell.thumbnailImageView.image = nil;
     
@@ -169,6 +171,14 @@
     cell.yearLabel.text = [NSString stringWithFormat:@"Year: %@ | %@", [[_movies objectAtIndex:indexPath.row] valueForKey:@"year"], [[_movies objectAtIndex:indexPath.row] valueForKey:@"type"]];
     
     return cell;
+}
+
+#pragma mark TableViewCellDelegate
+
+- (void)didInvokedCellTapGesture:(UITableViewCell *)sender
+{
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+    NSLog(@"%@: %@", [[_movies objectAtIndex:indexPath.row] valueForKey:@"year"], [[_movies objectAtIndex:indexPath.row] valueForKey:@"title"]);
 }
 
 /*

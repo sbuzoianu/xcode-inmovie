@@ -7,12 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "+TableViewCellDelegate.h"
 
 @interface SearchTableViewCell : UITableViewCell
+
+@property (nonatomic, strong) id<TableViewCellDelegate> delegate;
 
 @property (nonatomic, weak) IBOutlet UIImageView *thumbnailImageView;
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UILabel *yearLabel;
-@property (nonatomic, weak) IBOutlet UIButton *saveButton;
+
+- (IBAction)cellTapGestureInvoked:(UITapGestureRecognizer *)sender;
 
 @end

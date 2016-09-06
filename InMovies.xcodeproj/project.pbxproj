@@ -59,6 +59,7 @@
 		7A9E9B261D7C49AC0069CB50 /* SearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchView.h; sourceTree = "<group>"; };
 		7A9E9B271D7C49AC0069CB50 /* SearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchView.m; sourceTree = "<group>"; };
 		7A9E9B2A1D7C4B480069CB50 /* +NavigationDelegates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "+NavigationDelegates.h"; sourceTree = "<group>"; };
+		7AD73A491D7EED2E006A42C1 /* +TableViewCellDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "+TableViewCellDelegate.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				7A9E9B2A1D7C4B480069CB50 /* +NavigationDelegates.h */,
+				7AD73A491D7EED2E006A42C1 /* +TableViewCellDelegate.h */,
 				7A2C8AE31D7AEB2C00FAF271 /* RootController.h */,
 				7A2C8AE41D7AEB2C00FAF271 /* RootController.m */,
 				7A9E9B211D7C49880069CB50 /* SearchController.h */,
