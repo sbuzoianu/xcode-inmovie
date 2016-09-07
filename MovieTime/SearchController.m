@@ -50,6 +50,8 @@
 
 - (void) initGraphics
 {
+    self.view.backgroundColor = [UIColor clearColor];
+    
     _searchView = [[SearchView alloc] init];
     _searchView.delegate = self;
     _searchView.controller = self;
@@ -152,6 +154,7 @@
         cell.delegate = self;
     }
     cell.thumbnailImageView.image = nil;
+    cell.backgroundColor = [UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:0.17f];
     
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
     dispatch_async(queue, ^(void) {

@@ -9,6 +9,8 @@
 #import "RootController.h"
 #import "RootView.h"
 
+#import "BlurryModalSegue.h"
+
 @interface RootController () <MainNavigationDelegate>
 {
     RootView *_mainView;
@@ -53,9 +55,13 @@
 {
     SearchController *searchPage = [[SearchController alloc] initWithNibName:@"SearchView" bundle:nil];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:searchPage];
-    navigationController.modalPresentationStyle = UIViewAnimationTransitionFlipFromLeft;
     
-    [self.navigationController presentViewController:navigationController animated:YES completion:nil];
+    BlurryModalSegue *segue = [[BlurryModalSegue alloc] initWithIdentifier:@"SearchView" source:self destination:navigationController];
+    [segue setBackingImageBlurRadius:@(15)];
+    [segue setBackingImageSaturationDeltaFactor:@(.15)];
+    [segue setBackingImageTintColor: [[UIColor whiteColor] colorWithAlphaComponent:0.3f]];
+    
+    [segue perform];
 }
 
 @end

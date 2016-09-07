@@ -52,9 +52,10 @@
         //MARK: Blur Effect
         //Stackoverflow: http://stackoverflow.com/questions/17041669/creating-a-blurring-overlay-view
         
-        UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
+        UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
         UIVisualEffectView *blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
         blurEffectView.frame = view.bounds;
+        blurEffectView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.5];
         blurEffectView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         
         [backgroundView addSubview:blurEffectView];
@@ -62,14 +63,15 @@
     } else [view setBackgroundColor: [UIColor colorWithRed:0.86f green:0.86f blue:0.86f alpha:1.0f]];
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NSLog(@"rootview");
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+
 
 @end

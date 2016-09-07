@@ -22,11 +22,11 @@
     [navController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
     [navController.navigationBar setShadowImage:nil];
     
-    [navController.navigationBar setBarStyle:UIBarStyleBlackTranslucent];
+    [navController.navigationBar setBarStyle:UIBarStyleDefault];
     navController.navigationBar.translucent = YES;
     
     UIBarButtonItem *closeModalButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(callCloseButtonDelegate:)];
-    closeModalButton.tintColor = [UIColor whiteColor];
+    closeModalButton.tintColor = [UIColor lightGrayColor];
     
     [navItem setLeftBarButtonItem:closeModalButton];
     
@@ -51,15 +51,15 @@
     UILabel *movies = [[UILabel alloc] initWithFrame:CGRectMake(0, tableView.bounds.size.height/2+30, tableView.bounds.size.width, 40)];
     
     activIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
-    activIndicator.tintColor = [UIColor grayColor];
-    activIndicator.color = [UIColor grayColor];
+    activIndicator.tintColor = [[UIColor blackColor] colorWithAlphaComponent:0.4f];
+    activIndicator.color = [[UIColor blackColor] colorWithAlphaComponent:0.4f];
     activIndicator.hidden = NO;
     [activIndicator sizeToFit];
     
     movies.text = @"Loading...";
     [movies setFont:[UIFont fontWithName:@"Helvetica" size:20]];
     movies.textAlignment = NSTextAlignmentCenter;
-    movies.textColor = [UIColor grayColor];
+    movies.textColor = [[UIColor blackColor] colorWithAlphaComponent:0.4f];
     
     [bgView addSubview:activIndicator];
     [bgView addSubview:movies];
@@ -84,19 +84,19 @@
     UILabel *noDataLoaded = [[UILabel alloc] initWithFrame:CGRectMake(0, tableView.bounds.size.height/2+68, tableView.bounds.size.width, 40)];
     
     imgView.image = bgImg;
-    imgView.tintColor = [UIColor grayColor];
+    imgView.tintColor = [[UIColor blackColor] colorWithAlphaComponent:0.4f];
     imgView.contentMode = UIViewContentModeScaleAspectFit;
     
     movies.text = @"No Movies";
     [movies setFont:[UIFont fontWithName:@"Helvetica-Light" size:25]];
     movies.textAlignment = NSTextAlignmentCenter;
-    movies.textColor = [UIColor grayColor];
+    movies.textColor = [[UIColor blackColor] colorWithAlphaComponent:0.4f];
     
     noDataLoaded.text = @"You can search for a movie\nusing search bar.";
     [noDataLoaded setFont:[UIFont fontWithName:@"Helvetica-Light" size:16]];
     noDataLoaded.textAlignment = NSTextAlignmentCenter;
     noDataLoaded.numberOfLines = 2;
-    noDataLoaded.textColor = [UIColor grayColor];
+    noDataLoaded.textColor = [[UIColor blackColor] colorWithAlphaComponent:0.4f];
     
     [bgView addSubview:imgView];
     [bgView addSubview:movies];
