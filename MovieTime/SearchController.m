@@ -14,6 +14,8 @@
 #import "IMDBManager.h"
 #import "IMDBSearch.h"
 
+#import "MovieDetailsController.h"
+
 @interface SearchController () <IMDBManagerDelegate, SearchNavigationDelegate, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, TableViewCellDelegate>
 {
     NSArray *_movies;
@@ -154,7 +156,7 @@
         cell.delegate = self;
     }
     cell.thumbnailImageView.image = nil;
-    cell.backgroundColor = [UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:0.17f];
+    cell.backgroundColor = [UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:0.2f];
     
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
     dispatch_async(queue, ^(void) {
@@ -181,7 +183,14 @@
 - (void)didInvokedCellTapGesture:(UITableViewCell *)sender
 {
     NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-    NSLog(@"%@: %@", [[_movies objectAtIndex:indexPath.row] valueForKey:@"year"], [[_movies objectAtIndex:indexPath.row] valueForKey:@"title"]);
+    IMDBMovieDataModel *transfer = [_movies objectAtIndex:indexPath.row];
+    
+    MovieDetailsController *movieDetails = [[MovieDetailsController alloc] initWithNibName:@"MovieDetailsView" bundle:nil];
+    movieDetails.params = transfer;
+    
+    [_searchBar removeFromSuperview];
+    
+    [self.navigationController pushViewController:movieDetails animated:YES];
 }
 
 /*

@@ -55,7 +55,7 @@
         UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
         UIVisualEffectView *blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
         blurEffectView.frame = view.bounds;
-        blurEffectView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.65];
+        blurEffectView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.63];
         blurEffectView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         
         [backgroundView addSubview:blurEffectView];

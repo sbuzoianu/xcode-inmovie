@@ -24,6 +24,19 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self initGraphics];
+}
+
+- (void)initGraphics
+{
+    UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:nil];
+    
+    [self.navigationItem setRightBarButtonItem:saveButton];
+}
+
 /*
 #pragma mark - Navigation
 

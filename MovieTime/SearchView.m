@@ -51,15 +51,15 @@
     UILabel *movies = [[UILabel alloc] initWithFrame:CGRectMake(0, tableView.bounds.size.height/2+30, tableView.bounds.size.width, 40)];
     
     activIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
-    activIndicator.tintColor = [[UIColor blackColor] colorWithAlphaComponent:0.4f];
-    activIndicator.color = [[UIColor blackColor] colorWithAlphaComponent:0.4f];
+    activIndicator.tintColor = [[UIColor blackColor] colorWithAlphaComponent:0.6f];
+    activIndicator.color = [[UIColor blackColor] colorWithAlphaComponent:0.6f];
     activIndicator.hidden = NO;
     [activIndicator sizeToFit];
     
     movies.text = @"Loading...";
     [movies setFont:[UIFont fontWithName:@"Helvetica" size:20]];
     movies.textAlignment = NSTextAlignmentCenter;
-    movies.textColor = [[UIColor blackColor] colorWithAlphaComponent:0.4f];
+    movies.textColor = [[UIColor blackColor] colorWithAlphaComponent:0.5f];
     
     [bgView addSubview:activIndicator];
     [bgView addSubview:movies];
@@ -80,23 +80,23 @@
     UIView *bgView = [[UIView alloc] initWithFrame:tableView.bounds];
     UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, tableView.bounds.size.height/2-61, tableView.bounds.size.width, 80)];
     UIImage *bgImg = [UIImage imageNamed:@"television"];
-    UILabel *movies = [[UILabel alloc] initWithFrame:CGRectMake(0, tableView.bounds.size.height/2+28, tableView.bounds.size.width, 40)];
-    UILabel *noDataLoaded = [[UILabel alloc] initWithFrame:CGRectMake(0, tableView.bounds.size.height/2+68, tableView.bounds.size.width, 40)];
+    UILabel *movies = [[UILabel alloc] initWithFrame:CGRectMake(0, tableView.bounds.size.height/2+29, tableView.bounds.size.width, 40)];
+    UILabel *noDataLoaded = [[UILabel alloc] initWithFrame:CGRectMake(0, tableView.bounds.size.height/2+67, tableView.bounds.size.width, 40)];
     
     imgView.image = bgImg;
-    imgView.tintColor = [[UIColor blackColor] colorWithAlphaComponent:0.4f];
+    imgView.tintColor = [[UIColor blackColor] colorWithAlphaComponent:0.6f];
     imgView.contentMode = UIViewContentModeScaleAspectFit;
     
     movies.text = @"No Movies";
     [movies setFont:[UIFont fontWithName:@"Helvetica-Light" size:25]];
     movies.textAlignment = NSTextAlignmentCenter;
-    movies.textColor = [[UIColor blackColor] colorWithAlphaComponent:0.4f];
+    movies.textColor = [[UIColor blackColor] colorWithAlphaComponent:0.6f];
     
     noDataLoaded.text = @"You can search for a movie\nusing search bar.";
     [noDataLoaded setFont:[UIFont fontWithName:@"Helvetica-Light" size:16]];
     noDataLoaded.textAlignment = NSTextAlignmentCenter;
     noDataLoaded.numberOfLines = 2;
-    noDataLoaded.textColor = [[UIColor blackColor] colorWithAlphaComponent:0.4f];
+    noDataLoaded.textColor = [[UIColor blackColor] colorWithAlphaComponent:0.45f];
     
     [bgView addSubview:imgView];
     [bgView addSubview:movies];

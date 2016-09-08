@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "IMDBMovieDataModel.h"
 
 @interface MovieDetailsController : UIViewController
+
+@property (nonatomic, strong) IMDBMovieDataModel *params;
 
 @end
