@@ -7,8 +7,12 @@
 //
 
 #import "MovieDetailsController.h"
+#import "MovieDetailsView.h"
 
 @interface MovieDetailsController ()
+{
+    MovieDetailsView *_view;
+}
 
 @end
 
@@ -32,9 +36,13 @@
 
 - (void)initGraphics
 {
-    UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:nil];
+    _view = [[MovieDetailsView alloc] init];
+    _view.controller = self;
     
-    [self.navigationItem setRightBarButtonItem:saveButton];
+    [_view setNavigationBarButtons];
+    [_view initScrollView];
+    
+    [_view populateScrollViewWithMovie:self.params withImage:self.transferImage];
 }
 
 /*

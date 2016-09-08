@@ -35,7 +35,13 @@
             for (NSString *key in movieResult)
                 if ([movieObj respondsToSelector:NSSelectorFromString(key)])
                     [movieObj setValue:[movieResult valueForKey:key] forKey:key];
-        
+            
+            NSString *urlPoster = [movieObj valueForKey:@"urlPoster"];
+            NSRange range = [urlPoster rangeOfString:@"_V1_"];
+            NSString *newPosterUrl = [NSString stringWithFormat:@"%@.jpg", [urlPoster substringToIndex:range.location]];
+            
+            [movieObj setValue:newPosterUrl forKey:@"urlPoster"];
+            
             [movies addObject:movieObj];
         }
     }

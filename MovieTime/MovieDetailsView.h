@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "IMDBMovieDataModel.h"
 
 @interface MovieDetailsView : UIView
+
+@property (nonatomic, strong) UIViewController *controller;
+@property (nonatomic, strong) UIScrollView *scrollView;
+
+- (void)setNavigationBarButtons;
+- (void)initScrollView;
+
+- (void)populateScrollViewWithMovie:(IMDBMovieDataModel *)params withImage:(UIImage *)image;
 
 @end

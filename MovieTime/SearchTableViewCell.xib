@@ -12,10 +12,10 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o5t-3Y-dOp" id="hRY-RS-93d">
-                <frame key="frameInset" width="375" height="90"/>
+                <frame key="frameInset" width="375" height="89"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uFL-XS-YVk">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cover50x74" translatesAutoresizingMaskIntoConstraints="NO" id="uFL-XS-YVk">
                         <frame key="frameInset" minX="8" minY="8" width="50" height="74"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -61,5 +61,6 @@
     </objects>
     <resources>
         <image name="Bookmarks" width="25" height="22"/>
+        <image name="cover50x74" width="50" height="74"/>
     </resources>
 </document>

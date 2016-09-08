@@ -12,5 +12,6 @@
 @interface MovieDetailsController : UIViewController
 
 @property (nonatomic, strong) IMDBMovieDataModel *params;
+@property (nonatomic, strong) UIImage *transferImage;
 
 @end

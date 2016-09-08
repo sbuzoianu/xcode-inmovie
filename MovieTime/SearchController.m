@@ -155,8 +155,8 @@
         cell = [nib objectAtIndex:0];
         cell.delegate = self;
     }
-    cell.thumbnailImageView.image = nil;
     cell.backgroundColor = [UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:0.2f];
+    [cell.thumbnailImageView setClipsToBounds:YES];
     
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
     dispatch_async(queue, ^(void) {
@@ -180,13 +180,14 @@
 
 #pragma mark TableViewCellDelegate
 
-- (void)didInvokedCellTapGesture:(UITableViewCell *)sender
+- (void)didInvokedCellTapGesture:(SearchTableViewCell *)sender
 {
     NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
     IMDBMovieDataModel *transfer = [_movies objectAtIndex:indexPath.row];
     
     MovieDetailsController *movieDetails = [[MovieDetailsController alloc] initWithNibName:@"MovieDetailsView" bundle:nil];
     movieDetails.params = transfer;
+    movieDetails.transferImage = sender.thumbnailImageView.image;
     
     [_searchBar removeFromSuperview];
     
