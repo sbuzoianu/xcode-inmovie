@@ -14,6 +14,7 @@
 
 @property (nonatomic, strong) MovieDetailsController *controller;
 @property (nonatomic, strong) UIScrollView *scrollView;
+@property (nonatomic, strong) NSString *trailerCalled;
 
 - (void)setNavigationBarButtons;
 - (void)initScrollView;

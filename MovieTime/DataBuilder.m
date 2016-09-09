@@ -58,46 +58,18 @@
                 NSLog(@"DataBuilder ERROR: %@", [err localizedDescription]);
             }
             
+            if([[movieResult objectForKey:@"trailer"] valueForKey:@"videoURL"]!=nil)
+            {
+                NSString *urlTrailer = [[movieResult objectForKey:@"trailer"] valueForKey:@"videoURL"];
+                
+                urlTrailer = [urlTrailer stringByReplacingOccurrencesOfString:@"www.imdb.comVIDEO" withString:@"m.imdb.com/video"];
+                
+                [movieObj setValue:urlTrailer forKey:@"trailerURL"];
+            }
+            
             [movies addObject:movieObj];
         }
     }
-    
-    [movies sortUsingComparator:^(id obj1, id obj2) {
-        NSString *obj1FirstYear = @"0";
-        NSString *obj2FirstYear = @"0";
-        
-        @try {
-            obj1FirstYear = [[obj1 valueForKey:@"year"] substringToIndex: 4];
-        } @catch (NSException *exception) {
-            obj1FirstYear = @"0";
-        }
-        
-        @try {
-            obj2FirstYear = [[obj2 valueForKey:@"year"] substringToIndex: 4];
-        } @catch (NSException *exception) {
-            obj2FirstYear = @"0";
-        }
-        
-        NSString *obj1Year = @"0";
-        NSString *obj2Year = @"0";
-        
-        @try {
-            obj1Year = [[obj1 valueForKey:@"year"] substringFromIndex: [[obj1 valueForKey:@"year"] length] - 4];
-        } @catch (NSException *exception) {
-            obj1Year = @"0";
-        }
-        
-        @try {
-            obj2Year = [[obj2 valueForKey:@"year"] substringFromIndex: [[obj2 valueForKey:@"year"] length] - 4];
-        } @catch (NSException *exception) {
-            obj2Year = @"0";
-        }
-        
-        // compare years
-        if ([obj1Year integerValue] > [obj2Year integerValue] || [obj1FirstYear integerValue] > [obj1Year integerValue] || [obj1Year  isEqual: @"0"])
-            return (NSComparisonResult)NSOrderedAscending;
-        else return (NSComparisonResult)NSOrderedDescending;
-    }];
     
     return movies;
 }

@@ -34,6 +34,7 @@
 @property (strong, nonatomic) NSDictionary *votes;
 @property (strong, nonatomic) NSString *type;
 @property (strong, nonatomic) NSDictionary *trailer;
+@property (strong, nonatomic) NSString *trailerURL;
 @property (strong, nonatomic) NSDictionary *actors;
 
 @property (strong, nonatomic) id posterImg;

@@ -170,12 +170,117 @@
     
     descView.frame = CGRectMake(25, lastContentHeight, frameWidth-50, descPlot.frame.size.height+20);
     
-    lastContentHeight += descPlot.frame.size.height + 30;
+    lastContentHeight += descPlot.frame.size.height + 40;
     
     [descView addSubview:descPlot];
-    
     [self.scrollView addSubview:descView];
+    
+    
+    //MARK:- INFOS
+    
+    UIView *infosView = [[UIView alloc] initWithFrame:CGRectMake(25, lastContentHeight, frameWidth-50, 80)];
+    
+    UIView *typeView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, (frameWidth-50)/3, infosView.frame.size.height)];
+    
+    UIView *votesView = [[UIView alloc] initWithFrame:CGRectMake(typeView.frame.origin.x+typeView.frame.size.width, 0, (frameWidth-50)/3, infosView.frame.size.height)];
+    
+    UIView *trailerView = [[UIView alloc] initWithFrame:CGRectMake(votesView.frame.origin.x+votesView.frame.size.width, 0, (frameWidth-50)/3, infosView.frame.size.height)];
+    
+    
+    //MARK: TypeView
+    
+    UIImageView *typeImageView  = [[UIImageView alloc] initWithFrame:CGRectMake(typeView.frame.size.width/2-16, 0, 32, 32)];
+    
+    typeImageView.image = [UIImage imageNamed:@"video_paylist_filled-50"];
+    typeImageView.image = [typeImageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    typeImageView.contentMode = UIViewContentModeScaleAspectFit;
+    
+    typeImageView.tintColor = [UIColor lightGrayColor];
+    
+    UILabel *typeText = [[UILabel alloc] initWithFrame:CGRectMake(0, typeView.frame.size.height-33, typeView.frame.size.width, 20)];
+    
+    typeText.text = [[self.controller.params objectAtIndex:self.controller.startId] valueForKey:@"type"];
+    typeText.numberOfLines = 0;
+    typeText.textAlignment = NSTextAlignmentCenter;
+    typeText.font = [UIFont fontWithName:@"Helvetica" size:14.0f];
+    typeText.textColor = [UIColor grayColor];
+    
+    [typeView addSubview:typeImageView];
+    [typeView addSubview:typeText];
+    
+    [infosView addSubview:typeView];
+    
+    
+    //MARK: VotesView
+    
+    UIImageView *votesImageView  = [[UIImageView alloc] initWithFrame:CGRectMake(votesView.frame.size.width/2-16, 0, 32, 32)];
+    
+    votesImageView.image = [UIImage imageNamed:@"good_quality_filled-50"];
+    votesImageView.image = [votesImageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    votesImageView.contentMode = UIViewContentModeScaleAspectFit;
+    
+    votesImageView.tintColor = [UIColor lightGrayColor];
+    
+    UILabel *votesText = [[UILabel alloc] initWithFrame:CGRectMake(0, votesView.frame.size.height-33, typeView.frame.size.width, 20)];
+    
+    votesText.text = [[self.controller.params objectAtIndex:self.controller.startId] valueForKey:@"votes"];
+    if([votesText.text isEqual:@""] || votesText.text==nil)
+        votesText.text = @"No votes";
+        
+    votesText.numberOfLines = 0;
+    votesText.textAlignment = NSTextAlignmentCenter;
+    votesText.font = [UIFont fontWithName:@"Helvetica" size:14.0f];
+    votesText.textColor = [UIColor grayColor];
+    
+    [votesView addSubview:votesImageView];
+    [votesView addSubview:votesText];
+    
+    [infosView addSubview:votesView];
+    
+    //MARK: TrailerView
+    
+    UIImageView *trailerImageView  = [[UIImageView alloc] initWithFrame:CGRectMake(trailerView.frame.size.width/2-16, 0, 32, 32)];
+    
+    trailerImageView.image = [UIImage imageNamed:@"tv_show-50"];
+    trailerImageView.image = [trailerImageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    trailerImageView.contentMode = UIViewContentModeScaleAspectFit;
+    
+    trailerImageView.tintColor = [UIColor lightGrayColor];
+    
+    UILabel *trailerText = [[UILabel alloc] initWithFrame:CGRectMake(0, trailerView.frame.size.height-33, trailerView.frame.size.width, 20)];
+    
+    trailerText.text = @"Trailer";
+    trailerText.numberOfLines = 0;
+    trailerText.textAlignment = NSTextAlignmentCenter;
+    trailerText.font = [UIFont fontWithName:@"Helvetica" size:14.0f];
+    trailerText.textColor = [UIColor grayColor];
+    
+    UIGestureRecognizer *tapOnTrailerView = [[UIGestureRecognizer alloc] initWithTarget:self.controller action:@selector(onTapTrailerView:)];
+    self.trailerCalled = [[self.controller.params objectAtIndex:self.controller.startId] valueForKey:@"trailerURL"];
+    
+    if(self.trailerCalled == nil)
+        trailerText.text = @"No Trailer";
+    
+    [trailerImageView addGestureRecognizer:tapOnTrailerView];
+    [trailerText addGestureRecognizer:tapOnTrailerView];
+    
+    [trailerView addSubview:trailerImageView];
+    [trailerView addSubview:trailerText];
+    
+    [infosView addSubview:trailerView];
+    
+    //MARK: FinalInfosView
+    
+    [self.scrollView addSubview:infosView];
+    lastContentHeight += infosView.frame.size.height  + 15;
+
     self.scrollView.contentSize = CGSizeMake(frameWidth, lastContentHeight);
+}
+
+- (void)onTapTrailerView:(UIGestureRecognizer *)sender
+{
+    if(self.trailerCalled!=nil)
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString: self.trailerCalled]];
 }
 
 - (void)setBlurEffect:(UIView *)image withFrame:(CGRect)CGRectFrame andWhite:(long)white
