@@ -11,7 +11,7 @@
 
 @interface SearchTableViewCell : UITableViewCell
 
-@property (nonatomic, strong) id<TableViewCellDelegate> delegate;
+@property (nonatomic, weak) id<TableViewCellDelegate> delegate;
 
 @property (nonatomic, weak) IBOutlet UIImageView *thumbnailImageView;
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;

@@ -476,6 +476,7 @@
 			baseConfigurationReference = 0A92D71D25D673BC271CC4D7 /* Pods-InMovies.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				DEVELOPMENT_TEAM = 2S2RSVRNML;
 				INFOPLIST_FILE = MovieTime/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
@@ -490,6 +491,7 @@
 			baseConfigurationReference = EBE291BAE1D932ADAD12EC39 /* Pods-InMovies.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				DEVELOPMENT_TEAM = 2S2RSVRNML;
 				INFOPLIST_FILE = MovieTime/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;

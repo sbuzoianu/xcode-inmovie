@@ -34,6 +34,14 @@
     [self initGraphics];
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    _view = nil;
+    self.params = nil;
+}
+
 - (void)initGraphics
 {
     _view = [[MovieDetailsView alloc] init];

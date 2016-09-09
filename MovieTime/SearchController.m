@@ -181,10 +181,10 @@
                 if (image)
                 {
                     dispatch_async(dispatch_get_main_queue(), ^{
-                        cell.thumbnailImageView.image = image;
                         [[_movies objectAtIndex:indexPath.row] setValue:[image convertToGrayscale] forKey:@"grayPosterImg"];
                         [[_movies objectAtIndex:indexPath.row] setValue:image forKey:@"posterImg"];
                         
+                        cell.thumbnailImageView.image = [[_movies objectAtIndex:indexPath.row] valueForKey:@"posterImg"];
                         [cell setNeedsLayout];
                     });
                 }

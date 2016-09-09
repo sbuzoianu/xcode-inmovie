@@ -15,4 +15,9 @@
     self.actors = actors;
 }
 
+- (NSObject*)objectForKey:(NSString *)key
+{
+    return [self valueForKey:key];
+}
+
 @end

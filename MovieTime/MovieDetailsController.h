@@ -10,7 +10,7 @@
 
 @interface MovieDetailsController : UIViewController
 
-@property (nonatomic, strong) NSArray *params;
+@property (nonatomic, weak) NSArray *params;
 @property (nonatomic, assign) long startId;
 
 @end

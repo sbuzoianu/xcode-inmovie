@@ -17,7 +17,7 @@
 @interface IMDBManager : NSObject <IMDBSearchDelegate>
 
 @property (nonatomic, strong) IMDBSearch *search;
-@property (nonatomic, weak) id<IMDBManagerDelegate> delegate;
+@property (nonatomic, assign) id<IMDBManagerDelegate> delegate;
 
 - (void)fetchDatasByTitle:(NSString *)title;
 - (void)fetchActorsByMovie:(IMDBMovieDataModel *)movie;

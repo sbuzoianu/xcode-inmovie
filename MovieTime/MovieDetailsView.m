@@ -255,17 +255,19 @@
     trailerText.font = [UIFont fontWithName:@"Helvetica" size:14.0f];
     trailerText.textColor = [UIColor grayColor];
     
-    UIGestureRecognizer *tapOnTrailerView = [[UIGestureRecognizer alloc] initWithTarget:self.controller action:@selector(onTapTrailerView:)];
+    UITapGestureRecognizer *tapOnTrailerView = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapTrailerView:)];
+    [tapOnTrailerView setNumberOfTapsRequired:1];
+    
     self.trailerCalled = [[self.controller.params objectAtIndex:self.controller.startId] valueForKey:@"trailerURL"];
     
     if(self.trailerCalled == nil)
         trailerText.text = @"No Trailer";
     
-    [trailerImageView addGestureRecognizer:tapOnTrailerView];
-    [trailerText addGestureRecognizer:tapOnTrailerView];
-    
     [trailerView addSubview:trailerImageView];
     [trailerView addSubview:trailerText];
+    
+    [trailerView setUserInteractionEnabled:YES];
+    [trailerView addGestureRecognizer:tapOnTrailerView];
     
     [infosView addSubview:trailerView];
     

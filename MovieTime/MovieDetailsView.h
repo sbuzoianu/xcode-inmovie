@@ -12,9 +12,9 @@
 
 @interface MovieDetailsView : UIView
 
-@property (nonatomic, strong) MovieDetailsController *controller;
-@property (nonatomic, strong) UIScrollView *scrollView;
-@property (nonatomic, strong) NSString *trailerCalled;
+@property (nonatomic, weak) MovieDetailsController *controller;
+@property (nonatomic, weak) UIScrollView *scrollView;
+@property (nonatomic, weak) NSString *trailerCalled;
 
 - (void)setNavigationBarButtons;
 - (void)initScrollView;

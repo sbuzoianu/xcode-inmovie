@@ -41,16 +41,18 @@
                 if([movieResult objectForKey:@"urlPoster"]!=nil)
                 {
                     NSString *urlPoster = [movieObj valueForKey:@"urlPoster"];
+                    NSString *removedVal = @"_V1_";
                     
                     NSRange range = [urlPoster rangeOfString:@"_V1_"];
                     if(range.location == NSNotFound)
                     {
                         range = [urlPoster rangeOfString:@"_V1._"];
+                        removedVal = @"_V1._";
                         if(range.location == NSNotFound)
                             range = (NSRange){0, [urlPoster length]};
                     }
                     
-                    NSString *newPosterUrl = [NSString stringWithFormat:@"%@.jpg", [urlPoster substringToIndex:range.location]];
+                    NSString *newPosterUrl = [NSString stringWithFormat:@"%@%@UY230_.jpg", [urlPoster substringToIndex:range.location], removedVal];
                 
                     [movieObj setValue:newPosterUrl forKey:@"urlPoster"];
                 }
