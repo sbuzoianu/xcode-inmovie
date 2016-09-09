@@ -7,11 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "IMDBMovieDataModel.h"
 
 @interface MovieDetailsController : UIViewController
 
-@property (nonatomic, strong) IMDBMovieDataModel *params;
-@property (nonatomic, strong) UIImage *transferImage;
+@property (nonatomic, strong) NSArray *params;
+@property (nonatomic, assign) long startId;
 
 @end

@@ -42,7 +42,7 @@
     [_view setNavigationBarButtons];
     [_view initScrollView];
     
-    [_view populateScrollViewWithMovie:self.params withImage:self.transferImage];
+    [_view populateScrollViewWithMoviesFromList];
 }
 
 /*

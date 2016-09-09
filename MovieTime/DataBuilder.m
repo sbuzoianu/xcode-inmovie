@@ -30,25 +30,41 @@
     {
         IMDBMovieDataModel *movieObj = [[IMDBMovieDataModel alloc] init];
         
-        if([movieResult objectForKey:@"title"] != nil && [movieResult objectForKey:@"year"] != nil && [movieResult objectForKey:@"urlPoster"] != nil)
+        if([movieResult objectForKey:@"title"] != nil)
         {
             for (NSString *key in movieResult)
                 if ([movieObj respondsToSelector:NSSelectorFromString(key)])
                     [movieObj setValue:[movieResult valueForKey:key] forKey:key];
             
-            NSString *urlPoster = [movieObj valueForKey:@"urlPoster"];
-            NSRange range = [urlPoster rangeOfString:@"_V1_"];
-            NSString *newPosterUrl = [NSString stringWithFormat:@"%@.jpg", [urlPoster substringToIndex:range.location]];
-            
-            [movieObj setValue:newPosterUrl forKey:@"urlPoster"];
+            @try
+            {
+                if([movieResult objectForKey:@"urlPoster"]!=nil)
+                {
+                    NSString *urlPoster = [movieObj valueForKey:@"urlPoster"];
+                    
+                    NSRange range = [urlPoster rangeOfString:@"_V1_"];
+                    if(range.location == NSNotFound)
+                    {
+                        range = [urlPoster rangeOfString:@"_V1._"];
+                        if(range.location == NSNotFound)
+                            range = (NSRange){0, [urlPoster length]};
+                    }
+                    
+                    NSString *newPosterUrl = [NSString stringWithFormat:@"%@.jpg", [urlPoster substringToIndex:range.location]];
+                
+                    [movieObj setValue:newPosterUrl forKey:@"urlPoster"];
+                }
+            } @catch (NSError *err) {
+                NSLog(@"DataBuilder ERROR: %@", [err localizedDescription]);
+            }
             
             [movies addObject:movieObj];
         }
     }
     
     [movies sortUsingComparator:^(id obj1, id obj2) {
-        NSString *obj1FirstYear;
-        NSString *obj2FirstYear;
+        NSString *obj1FirstYear = @"0";
+        NSString *obj2FirstYear = @"0";
         
         @try {
             obj1FirstYear = [[obj1 valueForKey:@"year"] substringToIndex: 4];
@@ -62,8 +78,8 @@
             obj2FirstYear = @"0";
         }
         
-        NSString *obj1Year;
-        NSString *obj2Year;
+        NSString *obj1Year = @"0";
+        NSString *obj2Year = @"0";
         
         @try {
             obj1Year = [[obj1 valueForKey:@"year"] substringFromIndex: [[obj1 valueForKey:@"year"] length] - 4];
@@ -78,13 +94,9 @@
         }
         
         // compare years
-        if ([obj1Year integerValue] > [obj2Year integerValue] || [obj1FirstYear integerValue] > [obj2FirstYear integerValue] || [obj1Year integerValue] > [obj2FirstYear integerValue] || [obj1FirstYear integerValue] > [obj2Year integerValue])
+        if ([obj1Year integerValue] > [obj2Year integerValue] || [obj1FirstYear integerValue] > [obj1Year integerValue] || [obj1Year  isEqual: @"0"])
             return (NSComparisonResult)NSOrderedAscending;
-        
-        if ([obj1Year integerValue] < [obj2Year integerValue] || [obj1FirstYear integerValue] < [obj2FirstYear integerValue] || [obj1Year integerValue] < [obj2FirstYear integerValue] || [obj1FirstYear integerValue] < [obj2Year integerValue])
-            return (NSComparisonResult)NSOrderedDescending;
-        
-        return (NSComparisonResult)NSOrderedSame;
+        else return (NSComparisonResult)NSOrderedDescending;
     }];
     
     return movies;

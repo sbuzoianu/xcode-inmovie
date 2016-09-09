@@ -36,6 +36,9 @@
 @property (strong, nonatomic) NSDictionary *trailer;
 @property (strong, nonatomic) NSDictionary *actors;
 
+@property (strong, nonatomic) id posterImg;
+@property (strong, nonatomic) id grayPosterImg;
+
 - (void) addActorsProperty:(NSDictionary *)actors;
 
 @end

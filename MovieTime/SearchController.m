@@ -6,6 +6,8 @@
 //  Copyright © 2016 Buzoianu Stefan. All rights reserved.
 //
 
+#import "ImageGrayScale.h"
+
 #import "SearchController.h"
 #import "SearchView.h"
 #import "SearchTableViewCell.h"
@@ -38,7 +40,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self initIMDBManager];
     [self initGraphics];
 }
 
@@ -113,7 +114,7 @@
 
 - (void)fetchingJSONFailedWithError:(NSError *)error
 {
-    NSLog(@"ERROR: %@", [error localizedDescription]);
+    NSLog(@"Fetching ERROR: %@", [error localizedDescription]);
 }
 
 #pragma mark UITableViewDelegate
@@ -155,25 +156,46 @@
         cell = [nib objectAtIndex:0];
         cell.delegate = self;
     }
-    cell.backgroundColor = [UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:0.2f];
-    [cell.thumbnailImageView setClipsToBounds:YES];
     
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
-    dispatch_async(queue, ^(void) {
-        NSData *imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: [[_movies objectAtIndex:indexPath.row] valueForKey:@"urlPoster"]]];
-        UIImage *image = [[UIImage alloc] initWithData:imageData];
+    UIImage *image404 = [UIImage imageNamed:@"cover50x74"];
+    
+    cell.thumbnailImageView.image = image404;
+    if([[_movies objectAtIndex:indexPath.row] valueForKey:@"posterImg"]==nil)
+    {
+        [[_movies objectAtIndex:indexPath.row] setValue:image404 forKey:@"posterImg"];
+        [[_movies objectAtIndex:indexPath.row] setValue:image404 forKey:@"grayPosterImg"];
+    }
+    
+    @try
+    {
+        cell.backgroundColor = [UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:0.2f];
+        [cell.thumbnailImageView setClipsToBounds:YES];
         
-        if (image)
+        if([[_movies objectAtIndex:indexPath.row] valueForKey:@"posterImg"]==image404)
         {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                cell.thumbnailImageView.image = image;
-                [cell setNeedsLayout];
+            dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
+            dispatch_async(queue, ^(void) {
+                NSData *imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: [[_movies objectAtIndex:indexPath.row] valueForKey:@"urlPoster"]]];
+                UIImage *image = [[UIImage alloc] initWithData:imageData];
+            
+                if (image)
+                {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        cell.thumbnailImageView.image = image;
+                        [[_movies objectAtIndex:indexPath.row] setValue:[image convertToGrayscale] forKey:@"grayPosterImg"];
+                        [[_movies objectAtIndex:indexPath.row] setValue:image forKey:@"posterImg"];
+                        
+                        [cell setNeedsLayout];
+                    });
+                }
             });
-        }
-    });
-    
-    cell.titleLabel.text = [[_movies objectAtIndex:indexPath.row] valueForKey:@"title"];
-    cell.yearLabel.text = [NSString stringWithFormat:@"Year: %@ | %@", [[_movies objectAtIndex:indexPath.row] valueForKey:@"year"], [[_movies objectAtIndex:indexPath.row] valueForKey:@"type"]];
+        } else cell.thumbnailImageView.image = [[_movies objectAtIndex:indexPath.row] valueForKey:@"posterImg"];
+        
+        cell.titleLabel.text = [[_movies objectAtIndex:indexPath.row] valueForKey:@"title"];
+        cell.yearLabel.text = [NSString stringWithFormat:@"Year: %@ | %@", [[_movies objectAtIndex:indexPath.row] valueForKey:@"year"], [[_movies objectAtIndex:indexPath.row] valueForKey:@"type"]];
+    } @catch (NSError *err) {
+        NSLog(@"SearchController ERROR: %@", [err localizedDescription]);
+    }
     
     return cell;
 }
@@ -183,11 +205,11 @@
 - (void)didInvokedCellTapGesture:(SearchTableViewCell *)sender
 {
     NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-    IMDBMovieDataModel *transfer = [_movies objectAtIndex:indexPath.row];
     
     MovieDetailsController *movieDetails = [[MovieDetailsController alloc] initWithNibName:@"MovieDetailsView" bundle:nil];
-    movieDetails.params = transfer;
-    movieDetails.transferImage = sender.thumbnailImageView.image;
+    
+    movieDetails.params = _movies;
+    movieDetails.startId = indexPath.row;
     
     [_searchBar removeFromSuperview];
     

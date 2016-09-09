@@ -15,6 +15,7 @@
 		7A16E1CE1D77184200337929 /* IMDBSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A16E1CD1D77184200337929 /* IMDBSearch.m */; };
 		7A16E1D21D7735CA00337929 /* DataBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A16E1D11D7735CA00337929 /* DataBuilder.m */; };
 		7A16E1D61D78671B00337929 /* IMDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A16E1D51D78671B00337929 /* IMDBManager.m */; };
+		7A25B22C1D82151000BDBF8B /* ImageGrayScale.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A25B22B1D82151000BDBF8B /* ImageGrayScale.m */; };
 		7A2C8AE61D7AEB2C00FAF271 /* RootController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2C8AE41D7AEB2C00FAF271 /* RootController.m */; };
 		7A2C8AE71D7AEB2C00FAF271 /* RootView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A2C8AE51D7AEB2C00FAF271 /* RootView.xib */; };
 		7A2C8AE91D7AF10100FAF271 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A2C8AE81D7AF10100FAF271 /* Default-568h@2x.png */; };
@@ -50,6 +51,8 @@
 		7A16E1D41D78671B00337929 /* IMDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMDBManager.h; sourceTree = "<group>"; };
 		7A16E1D51D78671B00337929 /* IMDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMDBManager.m; sourceTree = "<group>"; };
 		7A16E1D71D788B7F00337929 /* +IMDBSearchDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "+IMDBSearchDelegate.h"; sourceTree = "<group>"; };
+		7A25B22A1D82151000BDBF8B /* ImageGrayScale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageGrayScale.h; sourceTree = "<group>"; };
+		7A25B22B1D82151000BDBF8B /* ImageGrayScale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageGrayScale.m; sourceTree = "<group>"; };
 		7A2C8AE31D7AEB2C00FAF271 /* RootController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootController.h; sourceTree = "<group>"; };
 		7A2C8AE41D7AEB2C00FAF271 /* RootController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootController.m; sourceTree = "<group>"; };
 		7A2C8AE51D7AEB2C00FAF271 /* RootView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootView.xib; sourceTree = "<group>"; };
@@ -127,6 +130,8 @@
 			isa = PBXGroup;
 			children = (
 				7A16E1B91D75CB9500337929 /* App Files */,
+				7A25B22A1D82151000BDBF8B /* ImageGrayScale.h */,
+				7A25B22B1D82151000BDBF8B /* ImageGrayScale.m */,
 				7A16E1A01D75AFFF00337929 /* main.m */,
 				7A16E1AE1D75B00000337929 /* Assets.xcassets */,
 				7A2C8AE81D7AF10100FAF271 /* Default-568h@2x.png */,
@@ -361,6 +366,7 @@
 				7A2C8AED1D7B0EF500FAF271 /* RootView.m in Sources */,
 				7A16E1D21D7735CA00337929 /* DataBuilder.m in Sources */,
 				7A16E1AD1D75B00000337929 /* MovieTime.xcdatamodeld in Sources */,
+				7A25B22C1D82151000BDBF8B /* ImageGrayScale.m in Sources */,
 				7AD73A511D7EF872006A42C1 /* MovieDetailsView.m in Sources */,
 				7A49035D1D7C79DF002C955C /* SearchTableViewCell.m in Sources */,
 				7A16E1A41D75AFFF00337929 /* AppDelegate.m in Sources */,
