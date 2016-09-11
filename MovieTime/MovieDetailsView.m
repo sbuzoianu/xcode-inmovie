@@ -343,6 +343,43 @@
     
     lastContentHeight += infosView.frame.size.height  + 5;
     
+    
+    //MARK: GENRES
+    
+    UIScrollView *genres = [[UIScrollView alloc] initWithFrame:CGRectMake(25, lastContentHeight, frameWidth-50, 28)];
+    [genres setShowsHorizontalScrollIndicator:NO];
+    [genres setShowsVerticalScrollIndicator:NO];
+    
+    long firstMargin = 0;
+    long leftDistance = 0;
+    for(NSString *gen in [[self.controller.params objectAtIndex:self.controller.startId] valueForKey:@"genres"])
+    {
+        UIView *genreView = [[UILabel alloc] initWithFrame:CGRectMake(firstMargin+leftDistance, 0, 79, 28)];
+        genreView.backgroundColor = [UIColor colorWithRed:0.922f green:0.922f blue:0.922f alpha:1.0f];
+        genreView.layer.borderWidth = borderWidth;
+        genreView.layer.borderColor = [UIColor colorWithRed:0.905f green:0.905f blue:0.905f alpha:1.0f].CGColor;
+        genreView.layer.cornerRadius = 5;
+        genreView.layer.masksToBounds = YES;
+        
+        UILabel *genre = [[UILabel alloc] initWithFrame:CGRectMake(2, 6, 75, 16)];
+        genre.text = gen;
+        genre.textColor = [UIColor darkGrayColor];
+        genre.numberOfLines = 1;
+        genre.textAlignment = NSTextAlignmentCenter;
+        genre.font = [UIFont fontWithName:@"Helvetica" size:14.0f];
+        
+        [genreView addSubview:genre];
+        [genres addSubview:genreView];
+        
+        firstMargin = 6;
+        leftDistance = genreView.frame.size.width+genreView.frame.origin.x;
+    }
+    
+    genres.contentSize = CGSizeMake(leftDistance, genres.frame.size.height);
+    [movieEntireDetails addSubview:genres];
+    
+    lastContentHeight += genres.frame.size.height  + 15;
+
     //MARK: TrailerWebView
     
     if(self.trailerCalled != nil)
