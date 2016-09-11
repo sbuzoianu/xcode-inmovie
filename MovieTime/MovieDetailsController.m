@@ -9,7 +9,7 @@
 #import "MovieDetailsController.h"
 #import "MovieDetailsView.h"
 
-@interface MovieDetailsController ()
+@interface MovieDetailsController () <UIScrollViewDelegate>
 {
     MovieDetailsView *_view;
 }
@@ -20,18 +20,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self initGraphics];
     // Do any additional setup after loading the view from its nib.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [self initGraphics];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -51,6 +46,18 @@
     [_view initScrollView];
     
     [_view populateScrollViewWithMoviesFromList];
+}
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    [_view eventOnDidScrollMoviesList:scrollView];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    [_view eventOnDidScrollMoviesList:scrollView];
 }
 
 /*

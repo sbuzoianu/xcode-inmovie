@@ -12,7 +12,7 @@
 
 @interface MovieDetailsView : UIView
 
-@property (nonatomic, weak) MovieDetailsController *controller;
+@property (nonatomic, weak) MovieDetailsController<UIScrollViewDelegate> *controller;
 @property (nonatomic, weak) UIScrollView *scrollView;
 @property (nonatomic, weak) NSString *trailerCalled;
 
@@ -20,5 +20,6 @@
 - (void)initScrollView;
 
 - (void)populateScrollViewWithMoviesFromList;
+- (void)eventOnDidScrollMoviesList:(UIScrollView *)scrollView;
 
 @end

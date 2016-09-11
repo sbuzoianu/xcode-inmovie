@@ -64,7 +64,10 @@
             {
                 NSString *urlTrailer = [[movieResult objectForKey:@"trailer"] valueForKey:@"videoURL"];
                 
-                urlTrailer = [urlTrailer stringByReplacingOccurrencesOfString:@"www.imdb.comVIDEO" withString:@"m.imdb.com/video"];
+                urlTrailer = [NSString stringWithFormat:@"%@/imdb/embed?autoplay=false&width=400", [urlTrailer stringByReplacingOccurrencesOfString:@"www.imdb.comVIDEO" withString:@"www.imdb.com/video"]];
+                
+                urlTrailer = [urlTrailer stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
+                urlTrailer = [NSString stringWithFormat:@"http://iliemarius.ro/videoapi.php?target=%@&width=%f", urlTrailer, [[UIScreen mainScreen] bounds].size.width];
                 
                 [movieObj setValue:urlTrailer forKey:@"trailerURL"];
             }

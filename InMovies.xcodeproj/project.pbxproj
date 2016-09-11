@@ -22,6 +22,9 @@
 		7A2C8AED1D7B0EF500FAF271 /* RootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2C8AEC1D7B0EF500FAF271 /* RootView.m */; };
 		7A49035A1D7C7786002C955C /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A4903591D7C7786002C955C /* SearchTableViewCell.xib */; };
 		7A49035D1D7C79DF002C955C /* SearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A49035C1D7C79DF002C955C /* SearchTableViewCell.m */; };
+		7A78A19C1D84397C002D0C62 /* WebNavigatorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A78A19A1D84397C002D0C62 /* WebNavigatorController.m */; };
+		7A78A19D1D84397C002D0C62 /* WebNavigatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A78A19B1D84397C002D0C62 /* WebNavigatorView.xib */; };
+		7A78A1A01D8439A2002D0C62 /* WebNavigatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A78A19F1D8439A2002D0C62 /* WebNavigatorView.m */; };
 		7A9E9B241D7C49880069CB50 /* SearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9E9B221D7C49880069CB50 /* SearchController.m */; };
 		7A9E9B251D7C49880069CB50 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A9E9B231D7C49880069CB50 /* SearchView.xib */; };
 		7A9E9B281D7C49AC0069CB50 /* SearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9E9B271D7C49AC0069CB50 /* SearchView.m */; };
@@ -62,6 +65,11 @@
 		7A4903591D7C7786002C955C /* SearchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
 		7A49035B1D7C79DF002C955C /* SearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTableViewCell.h; sourceTree = "<group>"; };
 		7A49035C1D7C79DF002C955C /* SearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewCell.m; sourceTree = "<group>"; };
+		7A78A1991D84397C002D0C62 /* WebNavigatorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebNavigatorController.h; sourceTree = "<group>"; };
+		7A78A19A1D84397C002D0C62 /* WebNavigatorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebNavigatorController.m; sourceTree = "<group>"; };
+		7A78A19B1D84397C002D0C62 /* WebNavigatorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebNavigatorView.xib; sourceTree = "<group>"; };
+		7A78A19E1D8439A2002D0C62 /* WebNavigatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebNavigatorView.h; sourceTree = "<group>"; };
+		7A78A19F1D8439A2002D0C62 /* WebNavigatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebNavigatorView.m; sourceTree = "<group>"; };
 		7A9E9B211D7C49880069CB50 /* SearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchController.h; sourceTree = "<group>"; };
 		7A9E9B221D7C49880069CB50 /* SearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchController.m; sourceTree = "<group>"; };
 		7A9E9B231D7C49880069CB50 /* SearchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchView.xib; sourceTree = "<group>"; };
@@ -194,6 +202,8 @@
 				7A49035C1D7C79DF002C955C /* SearchTableViewCell.m */,
 				7AD73A4F1D7EF872006A42C1 /* MovieDetailsView.h */,
 				7AD73A501D7EF872006A42C1 /* MovieDetailsView.m */,
+				7A78A19E1D8439A2002D0C62 /* WebNavigatorView.h */,
+				7A78A19F1D8439A2002D0C62 /* WebNavigatorView.m */,
 				7A9E9B291D7C49B50069CB50 /* xib */,
 			);
 			name = Views;
@@ -206,6 +216,7 @@
 				7A9E9B231D7C49880069CB50 /* SearchView.xib */,
 				7A4903591D7C7786002C955C /* SearchTableViewCell.xib */,
 				7AD73A4C1D7EF833006A42C1 /* MovieDetailsView.xib */,
+				7A78A19B1D84397C002D0C62 /* WebNavigatorView.xib */,
 			);
 			name = xib;
 			sourceTree = "<group>";
@@ -221,6 +232,8 @@
 				7A9E9B221D7C49880069CB50 /* SearchController.m */,
 				7AD73A4A1D7EF833006A42C1 /* MovieDetailsController.h */,
 				7AD73A4B1D7EF833006A42C1 /* MovieDetailsController.m */,
+				7A78A1991D84397C002D0C62 /* WebNavigatorController.h */,
+				7A78A19A1D84397C002D0C62 /* WebNavigatorController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -301,6 +314,7 @@
 				7A2C8AE91D7AF10100FAF271 /* Default-568h@2x.png in Resources */,
 				7A9E9B251D7C49880069CB50 /* SearchView.xib in Resources */,
 				7A49035A1D7C7786002C955C /* SearchTableViewCell.xib in Resources */,
+				7A78A19D1D84397C002D0C62 /* WebNavigatorView.xib in Resources */,
 				7AD73A4E1D7EF833006A42C1 /* MovieDetailsView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -360,6 +374,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A78A1A01D8439A2002D0C62 /* WebNavigatorView.m in Sources */,
+				7A78A19C1D84397C002D0C62 /* WebNavigatorController.m in Sources */,
 				7A9E9B281D7C49AC0069CB50 /* SearchView.m in Sources */,
 				7AD73A4D1D7EF833006A42C1 /* MovieDetailsController.m in Sources */,
 				7A16E1C11D75CE1D00337929 /* IMDBMovieDataModel.m in Sources */,

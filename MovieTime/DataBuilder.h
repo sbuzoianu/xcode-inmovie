@@ -6,6 +6,7 @@
 //  Copyright © 2016 Buzoianu Stefan. All rights reserved.
 //
 
+#import "UIKit/UIKit.h"
 #import <Foundation/Foundation.h>
 
 @interface DataBuilder : NSObject
